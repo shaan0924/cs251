@@ -81,5 +81,6 @@ print('C2cD5c8WUn7zYd9ZpvPjFnSvdcguhcvByd')
 
 bob_public_key_BCY = bob_secret_key_BCY.pub
 bob_address_BCY = P2PKHBitcoinAddress.from_pubkey(bob_public_key_BCY)
+print(bob_address_BCY)
 print('C22bYUx55z3WWT96hSaW7p7JZn4acEziy4')
 ######################################################################
