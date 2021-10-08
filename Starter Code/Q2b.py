@@ -10,10 +10,10 @@ from Q2a import Q2a_txout_scriptPubKey
 
 ######################################################################
 # TODO: set these parameters correctly
-amount_to_send = 0.00008 # amount of BTC in the output you're sending minus fee
+amount_to_send = 0.00009 # amount of BTC in the output you're sending minus fee
 txid_to_spend = (
-        '2dc9e5e8229fac4274d24b6ae063a8cc880d0cc7654bb0867813bb4b68e70166')
-utxo_index = 1 # index of the output you are spending, indices start at 0
+        'a142c73a004eb05f056e41030ce59f2e4bf06e9ebc4b881d8060973ac5a4b3bc')
+utxo_index = 0 # index of the output you are spending, indices start at 0
 ######################################################################
 
 txin_scriptPubKey = Q2a_txout_scriptPubKey

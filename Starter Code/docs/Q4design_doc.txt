@@ -11,4 +11,23 @@
 #            Why can't this be solved with a simple 1-of-2 multisig? 
 #
 
+1) I used the if statements that Bitcoin OP codes provided to make sure both conditions would pass.
+Both scriptsigs push two values onto the stack and then the scriptpubkey duplicates and hashes the
+top value. This hash is then compared to the hash of the secret value (hash_of_secret) using OP_EQUAL.
+Depending on the value of this function, the script splits using an op_if statement. If the secret was
+provided in the scriptsig, then the secret will be dropped from the stack, the public key will be
+provided, and then checksig will be run. If the signatures of both parties was provided, then each
+signature will be verified against their respective public key. In either case, the script will return
+true when either scriptsig is provided.
 
+2) In the bigger scope of the atomic swap, the scriptPubKey is used to lock the exchange amounts before
+the swap occurs. When a swap is occurring, both parties use the scriptPubKey to move the money they are
+swapping into a middle ground. Then, if the transaction either goes well or sour, the sender/recipient can
+unlock those funds accordingly. This way there is a method to have the swap funds set in a middle ground 
+before the swap is confirmed.
+
+3) Because Alice gets Bob to sign her time-locked transaction, if Bob does not redeem the coins, they will
+return back to Alice after the time expires. This way, if no coins are redeemed in the swap, both sets of
+coins will return to their owners regardless. We cannot use a 1-of-2 multisig in this case because one
+party could redeem their coins on one part of the swap and then use their signature to take back their
+other coins that they put up for swapping.

@@ -41,7 +41,7 @@ if __name__ == '__main__':
     public_key = private_key.pub
     address = P2PKHBitcoinAddress.from_pubkey(public_key)
 
-    amount_to_send = 0.0009 # amount of BTC in the output you're splitting minus fee
+    amount_to_send = 0.0006 # amount of BTC in the output you're splitting minus fee
     txid_to_spend = '735a3e499174d16fe4883610aaec083d36b83595c020ccdb5a7c8a56b2145a3e'
     utxo_index = 0 # index of the output you are spending, indices start at 0
     n = 3 # number of outputs to split the input into
